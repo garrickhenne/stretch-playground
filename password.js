@@ -7,16 +7,19 @@ Every "e" in the string should be replaced with a "3".
 Every "o" (oh) in the string should be replaced with a "0" (zero).
 Every "l" (el) in the string should be replaced with a "1" (one).
 */
+const logAndExit = (message) => {
+  console.log(message);
+  process.exit(1);
+};
 
+// Check to see if script was given exactly one argument.
 const checkSingleArg = function(args) {
   if (!args[2]) {
-    console.log('Please enter a password as an argument');
-    process.exit(1);
+    logAndExit('Please enter a password as an argument');
   }
 
   if (args.length > 3) {
-    console.log('Please only enter one argument.');
-    process.exit(1);
+    logAndExit('Please only enter one argument.');
   }
 };
 
