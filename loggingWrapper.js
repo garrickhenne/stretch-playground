@@ -1,10 +1,9 @@
 const wrapLog = function(callback, name) {
   /* your code here */
-
-
-
-
-  return callback();
+  // log name of function, then its arguments in paren, then =>, then returned value.
+  return function() {
+    console.log(`${name}(${[...arguments].join(', ')}) => ${callback.apply(null, arguments)} `);
+  };
 };
 
 const area = function(x, y) {
@@ -21,4 +20,4 @@ const volume = function(x, y, z) {
 const logVolume = wrapLog(volume, "volume");
 
 logVolume(5, 3, 2); // volume(5, 3, 2) => 30
-logVolume(3, 2, 4); // volume(3, 2, 4) => 24
+logVolume(3, 2, 4); // volume(3, 2, 4) => 24;;;;
